@@ -2,6 +2,7 @@
     opacity: .7;
 }
 
-.class-hover: {
-    
+.class-hover:hover {
+    background: #262626;
+    border-radius: 5px;
 }

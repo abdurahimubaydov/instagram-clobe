@@ -4,16 +4,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
-  updatePassword,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  FacebookAuthProvider,
+  signInWithPopup
 } from 'firebase/auth'
 import { useState } from 'react'
 import { auth } from '../firebase/firebase'
 import { useNavigate } from 'react-router-dom'
 
 interface IError {
-  error: IError
+  error: AuthError
 }
+
 export const useAuth = () => {
   const [user, setUser] = useState<User>();
   const [loading, setLoading] = useState<boolean>();
@@ -65,8 +67,19 @@ export const useAuth = () => {
 
   const resetPassword = async (email: string) => {
     await sendPasswordResetEmail(auth, email, actionCodeSettings)
+  };
+
+  const loginWithFacebook = async () => {
+    const provider = new FacebookAuthProvider();
+
+    try {
+      const res = await signInWithPopup(auth, provider);
+      console.log(res.user)
+    } catch (error) {
+
+    }
   }
 
 
-  return { user, loading, signUp, error, signIn, logOut, resetPassword }
-}
+  return { user, loading, signUp, error, signIn, logOut, resetPassword, loginWithFacebook }
+};

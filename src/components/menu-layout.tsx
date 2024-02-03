@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { IoMdHome } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineExploreOff } from "react-icons/md";
-import { auth } from '../firebase/firebase';
 
 export const MenuLayout = () => {
 
@@ -29,6 +28,7 @@ export const MenuLayout = () => {
                     <h1 style={{
                         display: 'flex',
                         alignItems: 'center',
+                        transition: '.2s'
                     }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white class-hover'>
                         <IoMdHome style={{ marginRight: 10 }} /> Home
                     </h1>
@@ -37,8 +37,9 @@ export const MenuLayout = () => {
                 <Link to={'/'}>
                     <h1 style={{
                         display: 'flex',
-                        alignItems: 'center'
-                    }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
+                        alignItems: 'center',
+                        transition: '.2s'
+                    }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white class-hover'>
                         <IoSearch style={{ marginRight: 10 }} /> Search
                     </h1>
                 </Link>
@@ -47,8 +48,9 @@ export const MenuLayout = () => {
                 <Link to={'/'}>
                     <h1 style={{
                         display: 'flex',
-                        alignItems: 'center'
-                    }} className='title is-size-5 active-class  pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
+                        alignItems: 'center',
+                        transition: '.2s'
+                    }} className='title is-size-5 active-class  pt-3 pb-3 pl-2 is-active mb-2 has-text-white class-hover'  >
                         <MdOutlineExploreOff style={{ marginRight: 10 }} /> Explore
                     </h1>
                 </Link>
@@ -56,8 +58,9 @@ export const MenuLayout = () => {
                 <Link to={'/'}>
                     <h1 style={{
                         display: 'flex',
-                        alignItems: 'center'
-                    }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
+                        alignItems: 'center',
+                        transition: '.2s'
+                    }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white class-hover'>
                         <IoSearch style={{ marginRight: 10 }} /> Profile
                     </h1>
                 </Link>

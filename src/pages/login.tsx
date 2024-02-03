@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/useAuth'
 import { Link, useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '../components/error-message'
 import { auth } from '../firebase/firebase'
+import { FaFacebook } from "react-icons/fa";
 
 interface IForm {
   email: string,
@@ -12,7 +13,7 @@ interface IForm {
 export const Login = (): JSX.Element => {
   const [email, setEmail] = useState<string>()
   const [password, setPassword] = useState<string>()
-  const { loading, error, signIn } = useAuth()
+  const { loading, error, signIn, loginWithFacebook } = useAuth()
   const navigate = useNavigate()
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +44,7 @@ export const Login = (): JSX.Element => {
 
   return (
     <div
-      style={{ width: '100%', height: '100vh', display: 'flex' }}
+      style={{ width: '100%', height: '100vh', display: 'flex', userSelect: 'none' }}
       className='has-background-dark is-align-items-center is-justify-content-center'
     >
       <form className='box' onSubmit={onSubmit}>
@@ -75,14 +76,15 @@ export const Login = (): JSX.Element => {
           </div>
           <Link to={'/sign-up'}>if you don't have an account</Link>
         </div>
-        <button className='button has-background-danger has-text-white' disabled={loading}>
+        <button className='button has-background-danger has-text-white mb-2' disabled={loading}>
           {loading ? 'loading...' : 'login'}
-        </button><br />
-        <Link to={'/reset-password'} style={{ textAlign: 'center' }}>forgot password?</Link>
+        </button> <br />
+
+        <Link to={'/reset-password'} style={{ textAlign: 'center' }}>
+          <a>forgot password?</a>
+        </Link>
+
       </form>
-
-
-
-    </div>
+    </div >
   )
 }
