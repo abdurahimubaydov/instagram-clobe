@@ -28,8 +28,8 @@ export const MenuLayout = () => {
                 <Link to={'/'}>
                     <h1 style={{
                         display: 'flex',
-                        alignItems: 'center'
-                    }} className='title is-size-5 active-class has-background-info pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
+                        alignItems: 'center',
+                    }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white class-hover'>
                         <IoMdHome style={{ marginRight: 10 }} /> Home
                     </h1>
                 </Link>
@@ -38,7 +38,7 @@ export const MenuLayout = () => {
                     <h1 style={{
                         display: 'flex',
                         alignItems: 'center'
-                    }} className='title is-size-5 active-class has-background-info pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
+                    }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
                         <IoSearch style={{ marginRight: 10 }} /> Search
                     </h1>
                 </Link>
@@ -48,7 +48,7 @@ export const MenuLayout = () => {
                     <h1 style={{
                         display: 'flex',
                         alignItems: 'center'
-                    }} className='title is-size-5 active-class has-background-info pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
+                    }} className='title is-size-5 active-class  pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
                         <MdOutlineExploreOff style={{ marginRight: 10 }} /> Explore
                     </h1>
                 </Link>
@@ -57,7 +57,7 @@ export const MenuLayout = () => {
                     <h1 style={{
                         display: 'flex',
                         alignItems: 'center'
-                    }} className='title is-size-5 active-class has-background-info pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
+                    }} className='title is-size-5 active-class pt-3 pb-3 pl-2 is-active mb-2 has-text-white'>
                         <IoSearch style={{ marginRight: 10 }} /> Profile
                     </h1>
                 </Link>
