@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { Home } from "./pages/home";
+import { Login } from "./pages/login";
+import { SignUp } from "./pages/sign-up";
+import { auth } from './firebase/firebase'
+import { ResetPassword } from "./pages/reset-password";
+import { useAppDispatch } from "./app/hooks";
+import { getUser } from "./reducer/user";
 
-function App() {
+export default function App(): JSX.Element {
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (!user) navigate('/login')
+      dispatch(getUser(user))
+    })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes >
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
+      </Routes>
     </div>
   );
-}
-
-export default App;
+};
